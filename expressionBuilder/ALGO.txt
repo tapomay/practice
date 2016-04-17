@@ -1,0 +1,65 @@
+/**
+ * 
+ * Algorithm: Recursive backtracking
+ * 
+ * Let Expression = Expression OP Expression | value OP Expression | Expression OP value | value | None
+ * where OP = PLUS | MINUS | PROD | DIV 
+ * and value : IntegerZA    
+ * 
+ * f(N:int, xarr:int[]) : Expression[]
+ *     resultExpr = Expression[]
+ *     if N == 0:
+ *         return []
+ *     if xarr.size == 1:
+ *         if xarr[0] == N:
+ *             return [N]
+ *         else:
+ *             return []
+ *         
+ *     for each x in xArr
+ *         restArr = xArr.delete(x)
+ *         
+ *         if x > N :
+ *             
+ *             //try division first
+ *             if x%N == 0: 
+ *                 rem = x / N
+ *                 expr = f(rem, restArr) such that x / expr  = N
+ *                 resultExpr.addAll(x, DIV, expr)
+ *             
+ *             //then try subtraction
+ *             rem = x - N
+ *             expr = f(rem, restArr) such that x - resultExpr = N
+ *             resultExpr.addAll(x, MINUS, expr)
+ *         
+ *         else if x <= N:
+ *             //try multiplication
+ *             if N%x == 0:
+ *                 rem = N / x
+ *                 expr  = f(rem, restArr) such that x * resultExpr = N
+ *                 resultExpr.addAll(x, PROD, expr)
+ *
+ *             //try addition
+ *             rem = N - x
+ *             resultExpr = f(rem, restArr) such that x + resultExpr = n
+ *             resultExpr.addAll(x, PLUS, expr)
+ *              
+ *             //try non-commutative division
+ *             rem = N * x
+ *             expr = f(rem, restArr)
+ *             resultExpr.addAll(expr, DIV, x)
+ *
+ *             //try non-commutative subtraction
+ *             rem = N + x
+ *             expr = f(rem, restArr)
+ *             resultExpr.addAll(expr, MINUS, x)
+ *
+ *     return resultExpr
+ *             
+ * @author tapomay
+ * @date 04/15/16
+ */
+ 
+ cat out.txt | sed 's/\[//g' | sed 's/\]//g' | tr ',' '\n'
+ 
+ 

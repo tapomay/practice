@@ -1,0 +1,23 @@
+
+a. Input:
+
+i. Set of integers [A, B, C, ..., D], the size of the set will be from 2 to 5 integers. For example [5, 5, 5, 1]
+
+ii. Target number: one integer, for example 24
+
+b. Output: arithmetical expression, that can use four arithmetic operands '+', '-', '*', '/' , any number of nested parenthesis and uses each integer from the input set exactly once. The result of the expression should be equal to the target number. If no such expression exists, then output will be 'none'
+
+c. Samples of inputs and outputs:
+
+i. [1, 2, 3, 4], target = 3, output: (2 + 4) * 1 – 3 = 3
+
+ii. [3, 3, 2, 8], target = 2, output: (3 – 3) * 8 + 2 = 2
+
+iii. [2, 1, 7], target = 12, output: 2 * (7 – 1) = 12
+
+iv. [3, 5, 5, 3], target = 1, output: (5 - (5 – 3)) / 3 = 1
+
+d. Command line arguments for input data: first integer is target number following by integers that form the input set.
+
+e. One of the test case we will try is [5, 5, 5, 1] and target number of 24. Command line arguments will look like this: 24 5 5 5 1.
+
