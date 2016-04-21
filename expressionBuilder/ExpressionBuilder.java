@@ -158,7 +158,8 @@ public class ExpressionBuilder {
                 List<Expression> expressions = findExpressions(rem, restArr);
                 List<Expression> newExpr = buildValueFirst(expressions, OP.MINUS, x);
                 resultExprList.addAll(newExpr);
-            } else if (x <= N) {
+            } 
+            else if (x <= N) {
                 if (N % x == 0) {
                     int rem = N / x;
                     List<Expression> expressions = findExpressions(rem, restArr);
@@ -198,11 +199,19 @@ public class ExpressionBuilder {
                 arr.add(Integer.parseInt(args[i].trim()));
             }
         }
+        else {
+            System.out.println("Invalid inputs");
+            return;
+        }
         List<Expression> findExpressions = test.findExpressions(N, arr);
-        if(findExpressions.size() > 0)
+        if(findExpressions.size() > 0) {
             System.out.println(findExpressions.get(0).toString());
-        else
+            System.out.println("All expressions: ");
+            System.out.println(findExpressions);
+        }
+        else {
             System.out.println("none");
+        }
     }
 
 }
